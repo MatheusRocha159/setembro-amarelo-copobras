@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setembro Amarelo® 2025</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favi.png" type="image/x-icon">
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFF176, #FFEB3B);
+    color: #0D47A1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 200px;
+    overflow-x: hidden; /* remove barra horizontal */
+  }
+
+  h1 {
+    font-size: 1.9em;
+    margin-bottom: 15px;
+    color: #0D47A1;
+    text-shadow: 0 0 2px #0D47A1;
+  }
+
+  p { margin-bottom: 25px; font-weight: bold; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .card {
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  .card img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+
+  .card span {
+    display: block;
+    margin-top: 5px;
+  }
+
+  /* cores dos cards */
+  .alegria { background: linear-gradient(135deg, #FFEB3B, #FFF176); color:#0D47A1;}
+  .tristeza { background: linear-gradient(135deg, #2196F3, #64B5F6);}
+  .medo { background: linear-gradient(135deg, #9C27B0, #BA68C8);}
+  .nojo { background: linear-gradient(135deg, #4CAF50, #81C784);}
+  .raiva { background: linear-gradient(135deg, #F44336, #E57373);}
+  .ansiedade { background: linear-gradient(135deg, #FF9800, #FFB74D);}
+  .inveja { background: linear-gradient(135deg, #31c49f, #66BB6A);}
+  .tedio { background: linear-gradient(135deg, #2f1f8a, #141a6b);}
+  .vergonha { background: linear-gradient(135deg, #E91E63, #F06292);}
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s;
+  }
+
+  .modal-content {
+    background: linear-gradient(135deg, #FFC107, #FFEB3B);
+    margin: 15% auto;
+    padding: 25px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    font-weight: bold;
+    color: #0D47A1;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    animation: slideIn 0.3s;
+    position: relative;
+    font-size: 1.2em;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 22px;
+    color: #0D47A1;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #d32f2f;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes slideIn {
+    from {transform: translateY(-30px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #0D47A1;
+    color: #FFF;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9em;
+  }
+
+  footer a {
+    color: #FFC107;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Ajustes para telas menores */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.4em;
+      padding: 0 10px;
+    }
+
+    .card {
+      width: 45%; /* dois cards por linha */
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .modal-content {
+      width: 90%;
+      margin: 30% auto;
+      padding: 20px;
+      font-size: 1.1em;
+    }
+
+    .close {
+      top: 8px;
+      right: 15px;
+      font-size: 26px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <img src="logo-copobras.png" alt="logo-grupo">
+
+<h1>Setembro Amarelo® 2025: se precisar, peça ajuda!</h1>
+<p>Escolha como está se sentindo e receba uma mensagem inspiradora!</p>
+
+<div class="cards-container">
+  <div class="card alegria" onclick="gerarMensagem('alegria')">
+    <img src="alegria.png" alt="Alegria">
+    <span>😊 Alegria</span>
+  </div>
+  <div class="card tristeza" onclick="gerarMensagem('tristeza')">
+    <img src="tristeza.png" alt="Tristeza">
+    <span>😢 Tristeza</span>
+  </div>
+  <div class="card medo" onclick="gerarMensagem('medo')">
+    <img src="medo.png" alt="Medo">
+    <span>😨 Medo</span>
+  </div>
+  <div class="card nojo" onclick="gerarMensagem('nojo')">
+    <img src="nojo.png" alt="Nojo">
+    <span>🤢 Nojo</span>
+  </div>
+  <div class="card raiva" onclick="gerarMensagem('raiva')">
+    <img src="raiva.png" alt="Raiva">
+    <span>😡 Raiva</span>
+  </div>
+  <div class="card ansiedade" onclick="gerarMensagem('ansiedade')">
+    <img src="ansiedade.png" alt="Ansiedade">
+    <span>😰 Ansiedade</span>
+  </div>
+  <div class="card inveja" onclick="gerarMensagem('inveja')">
+    <img src="inveja.png" alt="Inveja">
+    <span>😒 Inveja</span>
+  </div>
+  <div class="card tedio" onclick="gerarMensagem('tedio')">
+    <img src="tedio.png" alt="Tédio">
+    <span>😑 Tédio</span>
+  </div>
+  <div class="card vergonha" onclick="gerarMensagem('vergonha')">
+    <img src="vergonha.png" alt="Vergonha">
+    <span>😳 Vergonha</span>
+  </div>
+</div>
+
+<!-- Modal para mensagens -->
+<div id="modalMensagem" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="fecharModal()">&times;</span>
+    <p id="mensagemTexto">Sua mensagem aparecerá aqui!</p>
+  </div>
+</div>
+
+<script>
+  const mensagens = {
+    alegria:["Sua alegria ilumina todos ao redor!","Continue espalhando sorrisos!","A vida é mais leve quando você sorri.","Alegria é força, continue assim!","Sua felicidade inspira outros!","Cada risada sua contagia felicidade!","Mantenha seu brilho interior aceso!","Alegria transforma até dias cinzentos.","Seu entusiasmo é uma luz para todos!","Celebre cada pequena vitória com alegria!"],
+    tristeza:["Tudo passa, e dias melhores virão.","É normal sentir tristeza, você é humano.","Permita-se sentir e siga em frente.","Mesmo na tristeza, sua força é incrível.","Respire fundo, você vai superar.","A tristeza ensina lições valiosas.","Aceitar sentimentos traz liberdade.","Sua coragem é maior que a tristeza.","A cada dia, renasce uma nova esperança.","Você merece cuidar de si mesmo sempre."],
+    medo:["Coragem é agir apesar do medo.","Enfrente um passo de cada vez.","Você é mais forte do que imagina.","Respire, siga e supere seus medos.","Cada desafio enfrentado te fortalece.","Medo é apenas um sinal de crescimento.","Acredite em você mesmo!","Passos pequenos também levam longe.","Você consegue superar qualquer obstáculo.","Enfrentar o medo traz liberdade."],
+    nojo:["Afaste o que te prejudica e foque no positivo.","Sua percepção te ajuda a escolher o melhor.","Concentre-se no que te faz bem.","Não se deixe afetar por coisas negativas.","Seu bem-estar é prioridade.","Escolha ambientes que tragam alegria.","O que não serve, deixe ir.","Cuide de si mesmo e das suas escolhas.","Aprenda com as situações desagradáveis.","Transforme rejeição em aprendizado."],
+    raiva:["Respire, pense e transforme energia em ação positiva.","Controle suas escolhas, você tem o poder.","Canalize sua força para algo construtivo.","A raiva passa, sua calma fica.","Cada respiração ajuda a clarear a mente.","Transforme a raiva em motivação positiva.","Paciência e reflexão trazem equilíbrio.","Respire fundo antes de reagir.","Sua força interior é maior que qualquer raiva.","Mantenha a calma e siga em frente."],
+    ansiedade:["Respire fundo e concentre-se no presente.","Pequenos passos trazem grandes resultados.","Confie em si mesmo, tudo vai se encaixar.","Calma e paciência transformam momentos difíceis.","Acredite, você consegue superar.","Respire devagar e recupere a tranquilidade.","Pequenas pausas fortalecem a mente.","A calma está dentro de você.","Cada respiração consciente acalma a ansiedade.","Você tem força para lidar com qualquer situação."],
+    inveja:["Compare-se apenas com quem você era ontem.","Valorize suas próprias conquistas.","Seu caminho é único e especial.","Transforme inveja em inspiração.","Aprecie o sucesso dos outros e cresça.","Foque no que você pode conquistar.","Gratidão transforma comparação em alegria.","Sua evolução não depende de ninguém.","Cada passo seu é importante.","Cultive seu próprio potencial."],
+    tedio:["Use a monotonia para criar algo novo.","Desafie-se a aprender algo diferente.","Momentos simples podem trazer alegria.","Transforme tédio em oportunidade de crescimento.","Descubra algo que desperte sua curiosidade.","A vida muda quando você muda seu foco.","Inove em pequenas ações diárias.","Explore novos hobbies e interesses.","Tédio é convite para criatividade.","Cada instante pode ser especial se você escolher."],
+    vergonha:["Todos cometem erros, aprenda com eles.","Aceite-se como você é, com carinho.","A vulnerabilidade é sinal de coragem.","Não deixe vergonha bloquear seu potencial.","O constrangimento passa, a força fica.","Confie em si mesmo, você é capaz.","Seja gentil consigo em momentos difíceis.","Todos passam por situações desconfortáveis.","Crescimento vem com pequenas falhas.","Transforme vergonha em aprendizado e leveza."]
+  };
+
+  function gerarMensagem(sentimento) {
+    const frases = mensagens[sentimento];
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    document.getElementById("mensagemTexto").innerText = fraseAleatoria;
+    document.getElementById("modalMensagem").style.display = "block";
+  }
+
+  function fecharModal() {
+    document.getElementById("modalMensagem").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("modalMensagem");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<footer>
+  <p>Se precisar, fale com o CVV – Centro de Valorização da Vida. Ligue <strong>188</strong> (ligação gratuita e sigilosa). 
+  <br>Mais informações: <a href="https://www.cvv.org.br" target="_blank">www.cvv.org.br</a></p>
+
+  <br>
+
+  <p>Recursos Humanos Copobras</p>
+</footer>
+
+</body>
+</html>
